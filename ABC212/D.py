@@ -1,5 +1,6 @@
 #import math
 import itertools
+import heapq
 from collections import deque, Counter, defaultdict
 import sys
 #import numpy as np
@@ -12,8 +13,16 @@ def MI(): return map(int,input().split())
 def LLI(n): return [list(map(int, input().split())) for _ in range(n)]
 #G = [[] for _in range(n)]
 
-n,a,x,y = MI()
-if n >= a:
-    print(a*x + (n-a)*y)
-else:
-    print(n*x)
+q = I()
+ans = []
+heapq.heapify(ans)
+sum = 0
+for i in range(q):
+    a = LI()
+    if len(a) == 1:
+        print(heapq.heappop(ans)+sum)
+    else:
+        if a[0] == 1:
+            heapq.heappush(ans, a[1]-sum)
+        else:
+            sum += a[1]

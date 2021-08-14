@@ -12,8 +12,11 @@ def MI(): return map(int,input().split())
 def LLI(n): return [list(map(int, input().split())) for _ in range(n)]
 #G = [[] for _in range(n)]
 
-n,a,x,y = MI()
-if n >= a:
-    print(a*x + (n-a)*y)
+a,b = MI()
+
+if 0 < a and b == 0:
+    print("Gold")
+elif a == 0 and 0 < b:
+    print("Silver")
 else:
-    print(n*x)
+    print("Alloy")
