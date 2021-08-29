@@ -12,8 +12,20 @@ def MI(): return map(int,input().split())
 def LLI(n): return [list(map(int, input().split())) for _ in range(n)]
 #G = [[] for _in range(n)]
 
-n,a,x,y = MI()
-if n >= a:
-    print(a*x + (n-a)*y)
+s = input()
+x = ''
+
+for i in range(len(s)):
+    if s[i] == ".":
+        y = int(s[i+1])
+        break
+    else:
+        x += str(s[i])
+
+if y <= 2:
+    y = '-'
+elif y <= 6:
+    y = ''
 else:
-    print(n*x)
+    y = '+'
+print(x+y)

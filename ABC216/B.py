@@ -1,4 +1,5 @@
-#import math
+
+import math
 import itertools
 from collections import deque, Counter, defaultdict
 import sys
@@ -13,14 +14,19 @@ def LLI(n): return [list(map(int, input().split())) for _ in range(n)]
 #G = [[] for _in range(n)]
 
 n = I()
-s = input()
-print(s)
+s = []
+t = []
 
 for i in range(n):
-    if s[i] == "1":
-        if i % 2 == 0:
-            print("Takahashi")
-        else:
-            print("Aoki")
-        exit()
+    a, b = map(str, input().split())
+    s.append(a)
+    t.append(b)
+
+ans = 'No'
+for i in range(n-1):
+    for j in range(i+1,n):
+        if s[i] == s[j] and t[i] == t[j]:
+            ans = 'Yes'
+            break
+print(ans)
 
